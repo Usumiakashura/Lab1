@@ -32,7 +32,7 @@ namespace Lab1
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
+            textBox.Focus();
         }
 
         //----------------- ОБРАБОТКА КЛИКОВ ПО КНОПКАМ ------------------------
@@ -54,8 +54,6 @@ namespace Lab1
 
         private void ButtonOper_Click(object sender, RoutedEventArgs e)
         {
-            //x = Convert.ToDouble(textBox.Text);
-            //textBox.Text = "0";
             oper = (sender as Button).Content.ToString()[0];
             Calculate();
         }
@@ -74,6 +72,7 @@ namespace Lab1
                     break;
                 case 'c':
                     textBox.Text = "0";
+                    textBlock_info.Text = " ";
                     x = 0;   //1-ый операнд
                     oper = 'n';  //текущая операция
                     past_oper = 'n';    //прошлая операция
@@ -105,7 +104,6 @@ namespace Lab1
             {
                 oper = '+';
                 Calculate();
-
             }
             else if (e.Key == Key.Multiply)   // "*"
             {
@@ -131,7 +129,7 @@ namespace Lab1
                 textBox.Text = textBox.Text.Substring(0, textBox.Text.Length - 1);
 
             //----------------------------------------------------
-
+            
             textBox.Select(textBox.Text.Length, 0); //курсор в конец текстбокса
         }
 
@@ -153,14 +151,15 @@ namespace Lab1
 
         private void Calculate()
         {
-            if (!IsNumber(textBox.Text)) x = 0;
-            else x = Convert.ToDouble(textBox.Text);
-            textBox.Text = "0";
+            if (IsNumber(textBox.Text)) x = Convert.ToDouble(textBox.Text);
+
+            textBox.Text = "";
             switch (past_oper)
             {
                 case 'n':   //т.е. null или пустой
                     result = x;
                     past_oper = oper;
+                    
                     break;
                 case '+':
                     result += x;
@@ -180,8 +179,11 @@ namespace Lab1
                     break;
             }
 
+            textBlock_info.Text += (x.ToString() + oper.ToString());    //выводит информацию о текущих вычислениях
+
             if (oper == '=')
             {
+                textBlock_info.Text = " ";
                 textBox.Text = result.ToString();
                 x = 0;   //1-ый операнд
                 oper = 'n';  //текущая операция

@@ -1,0 +1,55 @@
+﻿<Window x:Class="Lab1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="350" Loaded="Window_Loaded" >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <TextBox x:Name="textBox" Grid.Row="0" Grid.ColumnSpan="4" Padding="10, 0" 
+                 HorizontalAlignment="Right" VerticalAlignment="Center"
+                 FontSize="24" FontFamily="Comic Sans MS" Text="0" 
+                 KeyDown="TextBox_KeyEvents" KeyUp="TextBox_KeyEvents" PreviewTextInput="TextBox_TextInputEvent"   />
+
+        <Button Grid.Column="0" Grid.Row="1" Content="c" FontSize="24" FontFamily="Comic Sans MS" Click="ButtonDel_Click" />
+        <Button Grid.Column="1" Grid.Row="1" Content="&lt;-" FontSize="24" FontFamily="Comic Sans MS" Click="ButtonDel_Click" />
+        <Button Grid.Column="2" Grid.Row="1" Content="*" FontSize="24" FontFamily="Comic Sans MS" Click="ButtonOper_Click" />
+        <Button Grid.Column="3" Grid.Row="1" Content="/" FontSize="24" FontFamily="Comic Sans MS" Click="ButtonOper_Click" />
+
+        <Button Grid.Column="0" Grid.Row="2" Content="7" FontSize="24" FontFamily="Comic Sans MS" Click="ButtonNumber_Click" />
+        <Button Grid.Column="1" Grid.Row="2" Content="8" FontSize="24" FontFamily="Comic Sans MS" Click="ButtonNumber_Click" />
+        <Button Grid.Column="2" Grid.Row="2" Content="9" FontSize="24" FontFamily="Comic Sans MS" Click="ButtonNumber_Click" />
+        <Button Grid.Column="3" Grid.Row="2" Content="-" FontSize="24" FontFamily="Comic Sans MS" Click="ButtonOper_Click" />
+
+        <Button Grid.Column="0" Grid.Row="3" Content="4" FontSize="24" FontFamily="Comic Sans MS" Click="ButtonNumber_Click" />
+        <Button Grid.Column="1" Grid.Row="3" Content="5" FontSize="24" FontFamily="Comic Sans MS" Click="ButtonNumber_Click" />
+        <Button Grid.Column="2" Grid.Row="3" Content="6" FontSize="24" FontFamily="Comic Sans MS" Click="ButtonNumber_Click" />
+        <Button Grid.Column="3" Grid.Row="3" Content="+" FontSize="24" FontFamily="Comic Sans MS" Click="ButtonOper_Click" />
+
+        <Button Grid.Column="0" Grid.Row="4" Content="1" FontSize="24" FontFamily="Comic Sans MS" Click="ButtonNumber_Click" />
+        <Button Grid.Column="1" Grid.Row="4" Content="2" FontSize="24" FontFamily="Comic Sans MS" Click="ButtonNumber_Click" />
+        <Button Grid.Column="2" Grid.Row="4" Content="3" FontSize="24" FontFamily="Comic Sans MS" Click="ButtonNumber_Click" />
+        <Button Grid.Column="3" Grid.Row="4" Grid.RowSpan="2" Content="=" FontSize="24" FontFamily="Comic Sans MS" Click="ButtonOper_Click" />
+
+        <Button Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" Content="0" FontSize="24" FontFamily="Comic Sans MS" Click="ButtonNumber_Click" />
+        <Button Grid.Column="2" Grid.Row="5" Content="," FontSize="24" FontFamily="Comic Sans MS" Click="ButtonPoint_Click" />
+
+        
+    </Grid>
+</Window>

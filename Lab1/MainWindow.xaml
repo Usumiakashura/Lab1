@@ -25,7 +25,7 @@
         <TextBox x:Name="textBox" Grid.Row="0" Grid.ColumnSpan="4" Padding="10, 0" 
                  HorizontalAlignment="Right" VerticalAlignment="Bottom"
                  FontSize="26" FontFamily="Comic Sans MS" Text="0" 
-                 KeyDown="TextBox_KeyEvents"  PreviewTextInput="TextBox_TextInputEvent"   />
+                 KeyDown="TextBox_KeyEvents" PreviewTextInput="TextBox_TextInputEvent"   />
 
         <TextBlock x:Name="textBlock_info" Grid.Row="0" Grid.ColumnSpan="4" Padding="10, 0" 
                  HorizontalAlignment="Right" VerticalAlignment="Top"

@@ -81,7 +81,6 @@ namespace Lab1
             }
         }
 
-
         //----------------- ОБРАБОТКА НАЖАТИЙ КЛАВИШ ------------------------
         
         private void TextBox_KeyEvents(object sender, KeyEventArgs e)

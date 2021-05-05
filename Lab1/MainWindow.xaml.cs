@@ -69,14 +69,16 @@ namespace Lab1
                     for (int i = 0; i < txt.Length - 1; i++)
                         str += txt[i];
                     textBox.Text = str;
+                    textBox.Focus();
                     break;
                 case 'c':
                     textBox.Text = "0";
-                    textBlock_info.Text = " ";
+                    textBlock_info.Text = "";
                     x = 0;   //1-ый операнд
                     oper = 'n';  //текущая операция
                     past_oper = 'n';    //прошлая операция
                     result = 0; //результат
+                    textBox.Focus();
                     break;
             }
         }
@@ -97,7 +99,7 @@ namespace Lab1
                 (e.Key == Key.OemComma && textBox.Text == ""))
                 textBox.Text = "0,";
 
-            //----- обработка клавиш "+", "-", "*", "/", " " -----
+            //----- обработка клавиш "+", "-", "*", "/", "Enter", " " -----
 
             else if (e.Key == Key.Add)   // "+"
             {
@@ -119,7 +121,7 @@ namespace Lab1
                 oper = '/';
                 Calculate();
             }
-            else if (e.Key == Key.Enter)   // "="
+            else if (e.Key == Key.Enter)   // "Enter"
             {
                 oper = '=';
                 Calculate();
@@ -150,15 +152,13 @@ namespace Lab1
 
         private void Calculate()
         {
-            if (IsNumber(textBox.Text)) x = Convert.ToDouble(textBox.Text);
-
-            textBox.Text = "";
+            x = Convert.ToDouble(textBox.Text);
+            textBox.Text = "0";
             switch (past_oper)
             {
                 case 'n':   //т.е. null или пустой
                     result = x;
                     past_oper = oper;
-                    
                     break;
                 case '+':
                     result += x;
@@ -178,17 +178,16 @@ namespace Lab1
                     break;
             }
 
-            textBlock_info.Text += (x.ToString() + oper.ToString());    //выводит информацию о текущих вычислениях
-
             if (oper == '=')
             {
-                textBlock_info.Text = " ";
+                textBlock_info.Text = "";
                 textBox.Text = result.ToString();
                 x = 0;   //1-ый операнд
                 oper = 'n';  //текущая операция
                 past_oper = 'n';    //прошлая операция
                 result = 0; //результат
-            }
+            } 
+            else textBlock_info.Text = (result.ToString() + oper.ToString());
         }
 
         private bool IsNumber(string text)  //метод для проверки является ли вводимый текст числом
@@ -196,7 +195,5 @@ namespace Lab1
             int output;
             return int.TryParse(text, out output);
         }
-
-
     }
 }

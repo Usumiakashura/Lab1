@@ -5,10 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab1"
         mc:Ignorable="d"
-        Title="Calculator" Height="450" Width="350" Loaded="Window_Loaded" >
-    <Grid>
+        Title="Calculator" Height="450" Width="450" MaxHeight="450" MaxWidth="450" 
+        Loaded="Window_Loaded" Background="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}" >
+    <Grid Background="#242424" >
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="100" ></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -22,37 +23,73 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
+        <TextBlock x:Name="textBlock_info" Grid.Row="0" Grid.ColumnSpan="4" Padding="10, 0" Margin="0, 10"
+                 HorizontalAlignment="Right" VerticalAlignment="Top" Background="#242424" 
+                 Foreground="DarkGray"  FontSize="20" FontFamily="Comic Sans MS" Text="" />
+
         <TextBox x:Name="textBox" Grid.Row="0" Grid.ColumnSpan="4" Padding="10, 0" 
-                 HorizontalAlignment="Right" VerticalAlignment="Bottom"
-                 FontSize="26" FontFamily="Comic Sans MS" Text="0" 
+                 HorizontalAlignment="Right" VerticalAlignment="Bottom" BorderBrush="Transparent" BorderThickness="0"
+                 FontSize="45" FontFamily="Comic Sans MS" Text="0" Background="#242424" Foreground="White"
                  KeyDown="TextBox_KeyEvents" PreviewTextInput="TextBox_TextInputEvent"   />
 
-        <TextBlock x:Name="textBlock_info" Grid.Row="0" Grid.ColumnSpan="4" Padding="10, 0" 
-                 HorizontalAlignment="Right" VerticalAlignment="Top"
-                 FontSize="18" FontFamily="Comic Sans MS" Text="" />
+        <Button Grid.Column="0" Grid.Row="1" Content="c" Background="#151515" BorderBrush="Transparent"
+                FontSize="24" FontFamily="Comic Sans MS" Foreground="White" Margin="1" 
+                Click="ButtonDel_Click" />
+        <Button Grid.Column="1" Grid.Row="1" Content="&lt;-" Background="#151515" BorderBrush="Transparent"
+                FontSize="24" FontFamily="Comic Sans MS" Foreground="White" Margin="1" 
+                Click="ButtonDel_Click" />
+        <Button Grid.Column="2" Grid.Row="1" Content="*" Background="#151515" BorderBrush="Transparent"
+                FontSize="24" FontFamily="Comic Sans MS" Foreground="White" Margin="1" 
+                Click="ButtonOper_Click" />
+        <Button Grid.Column="3" Grid.Row="1" Content="/" Background="#151515" BorderBrush="Transparent"
+                FontSize="24" FontFamily="Comic Sans MS" Foreground="White" Margin="1" 
+                Click="ButtonOper_Click" />
 
-        <Button Grid.Column="0" Grid.Row="1" Content="c" FontSize="24" FontFamily="Comic Sans MS" Click="ButtonDel_Click" />
-        <Button Grid.Column="1" Grid.Row="1" Content="&lt;-" FontSize="24" FontFamily="Comic Sans MS" Click="ButtonDel_Click" />
-        <Button Grid.Column="2" Grid.Row="1" Content="*" FontSize="24" FontFamily="Comic Sans MS" Click="ButtonOper_Click" />
-        <Button Grid.Column="3" Grid.Row="1" Content="/" FontSize="24" FontFamily="Comic Sans MS" Click="ButtonOper_Click" />
+        <Button Grid.Column="0" Grid.Row="2" Content="7" Background="#070707" BorderBrush="Transparent"
+                FontSize="24" FontFamily="Comic Sans MS" Foreground="White" Margin="1" 
+                Click="ButtonNumber_Click" />
+        <Button Grid.Column="1" Grid.Row="2" Content="8" Background="#070707" BorderBrush="Transparent"
+                FontSize="24" FontFamily="Comic Sans MS" Foreground="White" Margin="1" 
+                Click="ButtonNumber_Click" />
+        <Button Grid.Column="2" Grid.Row="2" Content="9" Background="#070707" BorderBrush="Transparent"
+                FontSize="24" FontFamily="Comic Sans MS" Foreground="White" Margin="1" 
+                Click="ButtonNumber_Click" />
+        <Button Grid.Column="3" Grid.Row="2" Content="-" Background="#151515" BorderBrush="Transparent"
+                FontSize="24" FontFamily="Comic Sans MS" Foreground="White" Margin="1" 
+                Click="ButtonOper_Click" />
 
-        <Button Grid.Column="0" Grid.Row="2" Content="7" FontSize="24" FontFamily="Comic Sans MS" Click="ButtonNumber_Click" />
-        <Button Grid.Column="1" Grid.Row="2" Content="8" FontSize="24" FontFamily="Comic Sans MS" Click="ButtonNumber_Click" />
-        <Button Grid.Column="2" Grid.Row="2" Content="9" FontSize="24" FontFamily="Comic Sans MS" Click="ButtonNumber_Click" />
-        <Button Grid.Column="3" Grid.Row="2" Content="-" FontSize="24" FontFamily="Comic Sans MS" Click="ButtonOper_Click" />
+        <Button Grid.Column="0" Grid.Row="3" Content="4" Background="#070707" BorderBrush="Transparent"
+                FontSize="24" FontFamily="Comic Sans MS" Foreground="White" Margin="1" 
+                Click="ButtonNumber_Click" />
+        <Button Grid.Column="1" Grid.Row="3" Content="5" Background="#070707" BorderBrush="Transparent"
+                FontSize="24" FontFamily="Comic Sans MS" Foreground="White" Margin="1" 
+                Click="ButtonNumber_Click" />
+        <Button Grid.Column="2" Grid.Row="3" Content="6" Background="#070707" BorderBrush="Transparent"
+                FontSize="24" FontFamily="Comic Sans MS" Foreground="White" Margin="1" 
+                Click="ButtonNumber_Click" />
+        <Button Grid.Column="3" Grid.Row="3" Content="+" Background="#151515" BorderBrush="Transparent"
+                FontSize="24" FontFamily="Comic Sans MS" Foreground="White" Margin="1" 
+                Click="ButtonOper_Click" />
 
-        <Button Grid.Column="0" Grid.Row="3" Content="4" FontSize="24" FontFamily="Comic Sans MS" Click="ButtonNumber_Click" />
-        <Button Grid.Column="1" Grid.Row="3" Content="5" FontSize="24" FontFamily="Comic Sans MS" Click="ButtonNumber_Click" />
-        <Button Grid.Column="2" Grid.Row="3" Content="6" FontSize="24" FontFamily="Comic Sans MS" Click="ButtonNumber_Click" />
-        <Button Grid.Column="3" Grid.Row="3" Content="+" FontSize="24" FontFamily="Comic Sans MS" Click="ButtonOper_Click" />
+        <Button Grid.Column="0" Grid.Row="4" Content="1" Background="#070707" BorderBrush="Transparent"
+                FontSize="24" FontFamily="Comic Sans MS" Foreground="White" Margin="1" 
+                Click="ButtonNumber_Click" />
+        <Button Grid.Column="1" Grid.Row="4" Content="2" Background="#070707" BorderBrush="Transparent"
+                FontSize="24" FontFamily="Comic Sans MS" Foreground="White" Margin="1" 
+                Click="ButtonNumber_Click" />
+        <Button Grid.Column="2" Grid.Row="4" Content="3" Background="#070707" BorderBrush="Transparent"
+                FontSize="24" FontFamily="Comic Sans MS" Foreground="White" Margin="1" 
+                Click="ButtonNumber_Click" />
+        <Button Grid.Column="3" Grid.Row="4" Grid.RowSpan="2" Content="=" Background="#dcb63f" BorderBrush="Transparent"
+                FontSize="24" FontFamily="Comic Sans MS" Foreground="White" Margin="1" 
+                Click="ButtonOper_Click" />
 
-        <Button Grid.Column="0" Grid.Row="4" Content="1" FontSize="24" FontFamily="Comic Sans MS" Click="ButtonNumber_Click" />
-        <Button Grid.Column="1" Grid.Row="4" Content="2" FontSize="24" FontFamily="Comic Sans MS" Click="ButtonNumber_Click" />
-        <Button Grid.Column="2" Grid.Row="4" Content="3" FontSize="24" FontFamily="Comic Sans MS" Click="ButtonNumber_Click" />
-        <Button Grid.Column="3" Grid.Row="4" Grid.RowSpan="2" Content="=" FontSize="24" FontFamily="Comic Sans MS" Click="ButtonOper_Click" />
-
-        <Button Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" Content="0" FontSize="24" FontFamily="Comic Sans MS" Click="ButtonNumber_Click" />
-        <Button Grid.Column="2" Grid.Row="5" Content="," FontSize="24" FontFamily="Comic Sans MS" Click="ButtonPoint_Click" />
+        <Button Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" Content="0" Background="#070707" BorderBrush="Transparent"
+                FontSize="24" FontFamily="Comic Sans MS" Foreground="White" Margin="1" 
+                Click="ButtonNumber_Click" />
+        <Button Grid.Column="2" Grid.Row="5" Content="," Background="#070707" BorderBrush="Transparent"
+                FontSize="24" FontFamily="Comic Sans MS" Foreground="White" Margin="1" 
+                Click="ButtonPoint_Click" />
 
         
     </Grid>

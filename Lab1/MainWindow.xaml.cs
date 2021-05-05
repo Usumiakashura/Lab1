@@ -42,20 +42,23 @@ namespace Lab1
             if (textBox.Text == "0")
                 textBox.Text = (sender as Button)?.Content.ToString();
             else
-                if (textBox.Text.Length < 20)
+                if (textBox.Text.Length < 14)
                 textBox.Text += (sender as Button)?.Content;
+            textBox.Focus();
         }
 
         private void ButtonPoint_Click(object sender, RoutedEventArgs e)
         {
             if (textBox.Text.IndexOf(',') < 0)
                 textBox.Text += ",";
+            textBox.Focus();
         }
 
         private void ButtonOper_Click(object sender, RoutedEventArgs e)
         {
             oper = (sender as Button).Content.ToString()[0];
             Calculate();
+            textBox.Focus();
         }
 
         private void ButtonDel_Click(object sender, RoutedEventArgs e)
@@ -87,7 +90,7 @@ namespace Lab1
         
         private void TextBox_KeyEvents(object sender, KeyEventArgs e)
         {
-            textBox.MaxLength = 20; //максимальное кол-во вводимых вручную символов
+            textBox.MaxLength = 14; //максимальное кол-во вводимых вручную символов
             if ((textBox.Text == "" || textBox.Text == "0")     //если попытаемся в начале ввести много нулей - оставить один "0"
                 && (e.Key == Key.D0 || e.Key == Key.NumPad0))
                 textBox.Text = "0";
